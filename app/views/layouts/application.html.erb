@@ -10,6 +10,10 @@
   </head>
 
   <body>
-    <%= yield %>
+    <%= render partial: 'shared/header' %>
+      <div class="container-fluid mt-2">
+        <%= render partial: 'shared/alerts' %>       
+        <%= yield %>
+      </div>
   </body>
 </html>
