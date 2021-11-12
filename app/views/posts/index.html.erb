@@ -1,6 +1,7 @@
 <h1 class='text-center'>Posts</h1>
 <% if user_signed_in? %>
 <%= link_to 'New Post', new_post_path, class:'btn btn-primary btn-lg mb-4' %>
+<p style="text-align:right; font-size:30px; font-style:italic; font-family:Arial,Helvetica,sans-serif">Welcome &nbsp;'<%= current_user.email.split("@")[0].capitalize %>'</p>
   <% @posts.includes(:user).each do |post| %>
     <div class="jumbotron">
       <p>
@@ -14,7 +15,18 @@
       <p>
       <strong>Body:</strong>
       <%= post.body %>
-      </p>      
+      </p>
+        <% if post.comments.present?%>
+          <p>
+            <strong>Comments:<%=post.comments.count%></strong>
+          </p>
+          <% post.comments.each do |comment| %>          
+            <p>
+            <%= comment.comment %>
+            </p>
+          <% end %>
+        <% end %>
+        <%= link_to 'View Post', post %>
     </div>      
   <% end %>
 <% end %>

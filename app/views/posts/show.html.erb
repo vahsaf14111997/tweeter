@@ -8,6 +8,25 @@
     <strong>Body:</strong>
     <%= @post.body %>
   </p>
+  <% if @post.comments.present? %>
+  <p>
+    <strong>Comments:</strong>
+  <% @post.comments.each do |comment| %>
+    <p><%= comment.comment %></p>
+  </p>
+  <% end %>
+  <%= form_with model: [ @post, @post.comments.build ] do |form| %>
+  <p>
+    <%= form.text_area :comment, placeholder:'Add Comments' %>
+  </p>
+  <p>
+    <%= form.number_field :post_id, value: @post.user.id, type: :hidden %>
+    <%= form.submit 'Add', class:'btn btn-primary btn-sm' %>
+  </p>
+   
+  <% end %>
+<% end %>
+
   <div class="mt-4">
     <%= link_to 'Edit', edit_post_path(@post), class:'btn btn-warning btn-sm' %> |
     <%= link_to 'Back', posts_path, class:'btn btn-primary btn-sm' %>
