@@ -56,6 +56,11 @@ class PostsController < ApplicationController
     end
   end
 
+  def mypost
+    @user = current_user
+    @posts = current_user.posts
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_post

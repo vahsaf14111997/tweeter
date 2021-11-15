@@ -20,13 +20,8 @@
           <p>
             <strong>Comments:<%=post.comments.count%></strong>
           </p>
-          <% post.comments.each do |comment| %>          
-            <p>
-            <%= comment.comment %>
-            </p>
-          <% end %>
         <% end %>
-        <%= link_to 'View Post', post %>
+        <%= link_to 'View Post', post, class:'btn btn-outline-primary' %>
     </div>      
   <% end %>
 <% end %>
