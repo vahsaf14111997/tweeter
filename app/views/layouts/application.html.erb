@@ -16,7 +16,11 @@
   <body>
     <%= render partial: 'shared/header' %>
       <div class="container-fluid mt-2">
-        <%= render partial: 'shared/alerts' %>       
+        <%= render partial: 'shared/alerts' %>   
+        <% if user_signed_in? %>
+          <%= link_to 'New Post', new_post_path, class:'btn btn-primary btn-lg mt-4' %>
+          <p style="text-align:right; font-size:30px; font-style:italic; font-family:Arial,Helvetica,sans-serif">Welcome &nbsp;'<%= current_user.email.split("@")[0].capitalize %>'</p>
+        <% end %>    
         <%= yield %>
       </div>
   </body>

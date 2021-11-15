@@ -1,24 +1,20 @@
 <div class="container">
-<div class="row justify-content-center mt-5">
-<div class="col-lg-10">
-<div class="card">
-  <div class="card-body">
-  <h1>Welcome to Tweeter</h1>
-  <div class="body-content">
-    <p>Tweeter is one of the top most social media. Engage, Enlighten, Encourage, and Especially... Just be your self. <strong>Tweeter</strong> is a community effort. everyone is an asset.</p>
-    <%=link_to 'Join tweeter', new_user_registration_path, class:'btn btn-primary' %>
-  </div>
-  </div>
+    <div class="row justify-content-center mt-5">
+        <div class="col-lg-10">
+            <div class="card">
+                <div class="card-body">
+                    <h1>Welcome to Tweeter</h1>
+                        <div class="body-content">
+                            <p>Tweeter is one of the top most social media. Engage, Enlighten, Encourage, and Especially... Just be your self. <strong>Tweeter</strong> is a community effort. everyone is an asset.</p>
+                            <% if !user_signed_in? %>
+                            <%= link_to 'Join tweeter', new_user_registration_path, class:'btn btn-primary' %>
+                            <% end %>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-</div>
-</div>
-</div>
-
-
-
-
-
-
 
 <style>
 h1{

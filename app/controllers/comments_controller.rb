@@ -3,7 +3,7 @@ class CommentsController < ApplicationController
     respond_to do |format|
     @post = Post.find(params[:post_id])
     @comment = @post.comments.create(comment_params)
-    format.html { redirect_to posts_path, notice: "Comment was successfully created." }
+    format.html { redirect_to @post, notice: "Comment was successfully created." }
     end
   end
 
