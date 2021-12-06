@@ -12,6 +12,7 @@
     <strong>Comments: <%=@post.comments.count%></strong>
   </p>
       <% @post.comments.each do |comment| %>
+        <small>Posted at<%= comment.created_at.strftime('%d/%m/%Y %I:%M %p') %></small>
         <p><%= comment.comment %></p>
         <p>By <%= comment.user.email %></p>
         <hr>
